@@ -55,10 +55,15 @@ class ServoController:
                                        functioncode=6)
         self.opmode = 'velocity'
         
-    def set_profileacc(self, rpm):
+    def set_profileacc(self, acc):
+      """set the acceleration of the servo
+
+        Args:
+            acc (int): acc value (conversion same as rpm)
+        """
         self.instrument.write_registers(
             Servo.ProfileAcceleration["Register"],
-            rpm_to_registers(rpm),
+            rpm_to_registers(acc),
         )
 
     def set_velocity(self, rpm):
