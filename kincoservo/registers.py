@@ -56,6 +56,8 @@ class ServoFD1X3:
     PositionSpeedCommand = {"R/W": "W", "Register": 0x4A00, "functioncode": 10}
 
     PositionFeedback = {"R/W": "R", "Register": 0x3700, "read_length": 2}
+    
+    ProfileAcceleration = { "R/W": "W", "Register": 0x4B00, "functioncode": 6}
 
     HomingMethod = {
         "R/W": "W",
