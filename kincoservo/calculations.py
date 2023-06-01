@@ -34,6 +34,11 @@ def registers_to_value(registers: list) -> int:
 def rpm_to_registers(value, scale_factor=2730.665):
     """
     Convert RPM to Modbus registers (2 bytes each)
+    Args:
+        value (int): rpm value to convert.
+        scale_factor (float): conversion factor for the register to rpm.
+    Returns:
+        list: register bytes. 
     """
     # Multiply the input value by the scaling factor and convert to integer
     scaled_value = int(value * scale_factor)
@@ -44,6 +49,11 @@ def rpm_to_registers(value, scale_factor=2730.665):
 def registers_to_rpm(registers, scale_factor=2730.665):
     """
     Convert Modbus registers (2 bytes each) to RPM
+    Args:
+        register (list): registers representing the rpm.
+        scale_factor (float): conversion factor for the register to rpm.
+    Returns:
+        int: rpm value. 
     """
     # convert registers to value (integer)
     value = registers_to_value(registers)
@@ -54,6 +64,11 @@ def registers_to_rpm(registers, scale_factor=2730.665):
 def radians_to_registers(value, encoder_resolution=10000):
     """
     Convert radians to Modbus registers (2 bytes each)
+    Args:
+        value (float): radians value.
+        encoder_resolution (int): encoder count.
+    Returns:
+        list: register bytes. 
     """
 
     # convert radians to encoder counts (integer) 360 degrees = 10000 encoder counts
@@ -64,6 +79,11 @@ def radians_to_registers(value, encoder_resolution=10000):
 def registers_to_radians(registers, encoder_resolution=10000):
     """
     Convert Modbus registers (2 bytes each) to radians
+    Args:
+        value (list): register bytes.
+        encoder_resolution (int): encoder count.
+    Returns:
+        float: radians. 
     """
     # convert registers to value (integer)
     value = registers_to_value(registers)
