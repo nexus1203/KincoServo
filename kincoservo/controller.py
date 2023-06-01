@@ -9,8 +9,8 @@ from .registers import ServoFD1X3 as Servo
 
 class ServoController:
 
-    def __init__(self, port, address):
-        self.instrument = minimalmodbus.Instrument(port, address, debug=True)
+    def __init__(self, port, address, debug = False):
+        self.instrument = minimalmodbus.Instrument(port, address, debug=debug)
         self.instrument.serial.baudrate = 115200
         self.instrument.serial.parity = serial.PARITY_NONE
         self.instrument.serial.bytesize = 8
