@@ -54,6 +54,12 @@ class ServoController:
                                        Servo.CONTROL["Value"]["Start"],
                                        functioncode=6)
         self.opmode = 'velocity'
+        
+    def set_profileacc(self, rpm):
+        self.instrument.write_registers(
+            Servo.ProfileAcceleration["Register"],
+            rpm_to_registers(rpm),
+        )
 
     def set_velocity(self, rpm):
         """set the velocity of the servo
